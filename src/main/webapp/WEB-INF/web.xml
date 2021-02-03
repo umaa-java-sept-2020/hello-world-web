@@ -1,20 +1,49 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <!-- deployment descriptor to be read by server
    URL : CLASS
    /students : com.java.servlets.StudentServlet
  -->
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-   <servlet>
-     <servlet-name>studentServlet</servlet-name>
-     <servlet-class>com.java.servlets.StudentServlet</servlet-class>
-   </servlet>
-  <servlet-mapping>
-    <servlet-name>studentServlet</servlet-name>
-    <url-pattern>/students</url-pattern>
-  </servlet-mapping>
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- servletContext -->
+    <context-param>
+        <param-name>c1</param-name>
+        <param-value>100</param-value>
+    </context-param>
+    <context-param>
+        <param-name>c2</param-name>
+        <param-value>200</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>studentServlet</servlet-name>
+        <servlet-class>com.java.servlets.StudentServlet</servlet-class>
+        <!-- ServletConfig-->
+        <init-param>
+            <param-name>x</param-name>
+            <param-value>10</param-value>
+        </init-param>
+        <init-param>
+            <param-name>y</param-name>
+            <param-value>20</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>employeeServlet</servlet-name>
+        <servlet-class>com.java.servlets.EmployeeServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>studentServlet</servlet-name>
+        <url-pattern>/students</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>employeeServlet</servlet-name>
+        <url-pattern>/employees</url-pattern>
+    </servlet-mapping>
 
 </web-app>
