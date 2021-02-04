@@ -27,6 +27,14 @@
     <filter>
         <filter-name>studentFilter</filter-name>
         <filter-class>com.java.filters.StudentFilter</filter-class>
+        <init-param>
+            <param-name>f1</param-name>
+            <param-value>10</param-value>
+        </init-param>
+        <init-param>
+            <param-name>f2</param-name>
+            <param-value>15</param-value>
+        </init-param>
     </filter>
 
     <filter-mapping>
