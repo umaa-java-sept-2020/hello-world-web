@@ -8,6 +8,10 @@
  -->
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
+    <listener>
+        <listener-class>com.java.listeners.AppEventListener</listener-class>
+    </listener>
     <!-- servletContext -->
     <context-param>
         <param-name>c1</param-name>
