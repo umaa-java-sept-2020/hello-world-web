@@ -22,6 +22,18 @@
         <param-value>200</param-value>
     </context-param>
 
+
+    <!-- /students: com.java.filters.StudentFilter -->
+    <filter>
+        <filter-name>studentFilter</filter-name>
+        <filter-class>com.java.filters.StudentFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>studentFilter</filter-name>
+        <url-pattern>/students</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>studentServlet</servlet-name>
         <servlet-class>com.java.servlets.StudentServlet</servlet-class>
