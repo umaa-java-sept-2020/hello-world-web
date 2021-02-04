@@ -2,6 +2,7 @@ package com.java.filters;
 
 import javax.servlet.*;
 import java.io.IOException;
+import java.util.Enumeration;
 
 public class StudentFilter implements Filter {
 
@@ -17,6 +18,7 @@ public class StudentFilter implements Filter {
         // only once on init on Startup
         this.filterConfig = filterConfig;
         filterConfig.getServletContext().log("init: "+this.getClass());
+        displayContextAndConfig();
     }
 
     @Override
@@ -35,5 +37,35 @@ public class StudentFilter implements Filter {
     @Override
     public void destroy() {// only once on destroy
         filterConfig.getServletContext().log("destroy: "+this.getClass());
+    }
+
+    // can call this method any where inside the LifeCycle methods (init , doFilter, destroy)
+    private void displayContextAndConfig()
+    {
+        ServletContext servletContext =  filterConfig.getServletContext();
+
+
+        servletContext.log("====print servlet context key values===");
+
+        servletContext.log("c1= "+servletContext.getInitParameter("c1"));
+        Enumeration<String> contextKeys =  servletContext.getInitParameterNames();
+
+        while(contextKeys.hasMoreElements())
+        {
+            String key = contextKeys.nextElement();
+            String value = servletContext.getInitParameter(key);
+            servletContext.log("key: "+key+" value: "+value);
+        }
+
+
+        servletContext.log("====print filter config key values===");
+
+        Enumeration<String> configKeys = filterConfig.getInitParameterNames();
+        while(configKeys.hasMoreElements())
+        {
+            String key = configKeys.nextElement();
+            String value = filterConfig.getInitParameter(key);
+            servletContext.log("key: "+key+" value: "+value);
+        }
     }
 }
